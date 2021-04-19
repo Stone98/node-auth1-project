@@ -101,7 +101,7 @@ router.post("/login", checkUsernameExists, async (req, res, next) => {
  */
 
 router.get("/logout", (req, res, next) => {
-  if (req.session) {
+  if (req.session.user) {
     req.session.destroy((err) => {
       if (err) {
         res.json("Can't log out");
